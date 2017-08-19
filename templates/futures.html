@@ -1,0 +1,28 @@
+{% extends '_base_offer.html' %}
+
+{% block type %}{{ Text.format('TMPL_FUTURES_TITLE', lang) }}{% end %}
+
+{% block body %}
+<p>
+    {{ Text.format('TMPL_FUTURES_TYPE', lang) }}: {{ offer.options.get('contract_type') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FUTURES_ASSET', lang) }}: {{ offer.options.get('contract_size') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FUTURES_TIMING', lang) }}: {{ offer.options.get('contract_maturity') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FUTURES_DELIVERY_DATE', lang) }}: {{ offer.options.get('delivery_date') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FUTURES_FUTURES_ID', lang) }}: {{ offer.options.get('loan_id') }}
+</p>
+{% end %}
+
+
+{% block price %}
+{{ Text.format('TMPL_FUTURES_PRICE', lang) }}
+<br/>
+${{ offer.fprice }}
+{% end %}

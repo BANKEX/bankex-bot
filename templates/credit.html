@@ -1,0 +1,37 @@
+{% extends '_base_offer.html' %}
+
+{% block type %}{{ Text.format('TMPL_CREDIT_TITLE', lang) }}{% end %}
+
+{% block body %}
+<p>
+    {{ Text.format('TMPL_ZIP', lang) }}: {{ offer.zip_code }}
+</p>
+<p>
+    {{ Text.format('TMPL_SERVICE', lang) }}: {{ offer.reg_service }}
+</p>
+<p>
+    {{ Text.format('TMPL_LOAN_ID', lang) }}: {{ offer.options.get('loan_id') }}
+</p>
+<p>
+    {{ Text.format('TMPL_LOAN_AMOUNT', lang) }}: {{ offer.options.get('loan_amount') }}
+</p>
+<p>
+    {{ Text.format('TMPL_INTEREST_RATE', lang) }}: {{ offer.options.get('interest_rate') }}
+</p>
+<p>
+    {{ Text.format('TMPL_LOAN_LENGTH', lang) }}: {{ offer.options.get('loan_length') }}
+</p>
+<p>
+    {{ Text.format('TMPL_LOAN_STATUS', lang) }}: {{ offer.options.get('loan_status') }}
+</p>
+<p>
+    {{ Text.format('TMPL_SELLERS_GARANTY', lang) }}: {{ offer.options.get('sellers_warranty') }}
+</p>
+{% end %}
+
+
+{% block price %}
+{{ Text.format('TMPL_CREDIT_PRICE', lang) }}
+<br/>
+${{ offer.fprice }}
+{% end %}

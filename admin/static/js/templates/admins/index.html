@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Администраторы</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <a href="/admins/add" class="btn btn-xs js-add-phys">
+                            <span class="glyphicon glyphicon-plus"></span> Добавить
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-3">Имя</th>
+                                <th class="col-md-3">Email</th>
+                                <th class="col-md-3">Дата регистрации</th>
+                                <th class="col-md-3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            users.each(function(item){
+                            %>
+                            <tr data-id="<%- item.get('id') %>" class="js-admin-row">
+                                <td>
+                                    <%- item.get('name') %>
+                                </td>
+                                <td>
+                                    <%- item.get('email') %>
+                                </td>
+                                <td>
+                                    <%- item.get('creation_date') %>
+                                </td>
+                                <td>
+                                    <a href="/<%- item.get('role') %>s/edit/<%- item.get('id') %>">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        Редактировать
+                                    </a>
+                                    <a href="#" data-id="<%- item.get('id') %>" class="js-admin-remove">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                        Удалить
+                                    </a>
+                                </td>
+                            </tr>
+                            <%
+                            });
+                            %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-offset-3 col-md-6 text-center">
+                    <ul class="pagination ">
+                        <% if (offset >= users.pageSize) { %>
+                        <li data-offset="0" class="pagination__item pagination__item_admins">
+                            <a href="#">В начало</a>
+                        </li>
+                        <% } %>
+
+                        <%
+                        for(var i = users.getBeginPagination(offset); i < users.getEndPagination(offset); i++) { %>
+                        <li data-offset="<%- (users.pageSize * i) %>" class="pagination__item pagination__item_admins <% if (offset == (users.pageSize * i)) { %>active<% }%>">
+                            <a href="#"><%- i+1 %></a>
+                        </li>
+                        <% } %>
+
+                        <% if (offset < users.pageSize * (users.pageCount -1)) { %>
+                        <li data-offset="<%- (users.pageSize * (users.pageCount -1)) %>" class="pagination__item pagination__item_admins">
+                            <a href="#">Последняя</a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

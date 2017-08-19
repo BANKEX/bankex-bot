@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Тексты</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <a href="/texts/add" class="btn btn-xs js-add-phys">
+                            <span class="glyphicon glyphicon-plus"></span> Добавить
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">Язык</th>
+                                <th class="col-md-1">Код</th>
+                                <th class="col-md-3">Значение</th>
+                                <th class="col-md-3">Комментарий</th>
+                                <th class="col-md-2">Дата обновления</th>
+                                <th class="col-md-2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            items.each(function(item){
+                            %>
+                            <tr data-id="<%- item.get('id') %>" class="js-row">
+                                <td>
+                                    <%- item.get('lang') %>
+                                </td>
+                                <td>
+                                    <%- item.get('key') %>
+                                </td>
+                                <td>
+                                    <%- item.get('value') %>
+                                </td>
+                                <td>
+                                    <%- item.get('comment') %>
+                                </td>
+                                <td>
+                                    <%- item.get('update_date') %>
+                                </td>
+                                <td>
+                                    <nobr>
+                                        <a href="/texts/edit/<%- item.get('id') %>">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            Редактировать
+                                        </a>
+                                    </nobr>
+                                    <nobr>
+                                        <a href="#" data-id="<%- item.get('id') %>" class="js-text-remove">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                            Удалить
+                                        </a>
+                                    </nobr>
+                                </td>
+                            </tr>
+                            <%
+                            });
+                            %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

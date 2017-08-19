@@ -1,0 +1,28 @@
+{
+  "name": "tklaw",
+  "version": "0.1.0",
+  "license": "private",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.0"
+  },
+  "dependencies": {
+    "jquery": "~1.11.3",
+    "backbone": "~1.1.2",
+    "backbonekts": "0.3.6",
+    "requirejs-text": "~2.0.0",
+    "underscore": "~1.8.3",
+    "notific": "~0.1.2",
+    "almond": "~0.3.1",
+    "moment": "~2.13.0",
+    "bootstrap": "~3.3.6",
+    "devbridge-autocomplete": "^1.2.25",
+    "font-awesome": "^3.2.1"
+  }
+}

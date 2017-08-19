@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h2><% if (item.get('id')) { %>
+                Редактирование администратора
+                <% } else { %>
+                Добавление администратора
+                <% } %>
+            </h2>
+            <form class="js-corp-form form-horizontal" role="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Email</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="email" value="<%- item.get('email') %>" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Имя</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="name" value="<%- item.get('name') %>"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-md-3 control-label">Пароль</label>
+                            <div class="col-md-8">
+                                <% if (item.get('id')) { %>
+                                <input type="password" class="form-control hidden" id="password" placeholder="Пароль" name="password" disabled/>
+                                <button type="button" class="btn btn-default btn_change-password">Изменить пароль
+                                </button>
+                                <% } else { %>
+                                <input type="password" class="form-control" id="password" placeholder="Пароль" name="password"/>
+                                <% } %>
+                                <script type="text/javascript">
+                                    require(['main'], function () {
+                                        require(['jquery'], function () {
+                                            $('.btn_change-password').click(function () {
+                                                $('#password').attr('disabled', false).removeClass('hidden');
+                                                $(this).remove();
+                                            });
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <% if (item.get('id')) { %>
+                <input type="hidden" name="id" value="<%- item.get('id') %>"/>
+                <% } %>
+                <div class="form-group">
+                    <div class="col-md-9">
+                        <button id="btn-signup" type="submit" class="btn btn-success">Сохранить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

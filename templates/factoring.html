@@ -1,0 +1,34 @@
+{% extends '_base_offer.html' %}
+
+{% block type %}{{ Text.format('TMPL_FACTORING_TITLE', lang) }}{% end %}
+
+{% block body %}
+<p>
+    {{ Text.format('TMPL_FACTORING_ZIP', lang) }}: {{ offer.zip_code }}
+</p>
+<p>
+    {{ Text.format('TMPL_FACTORING_SERVICE', lang) }}: {{ offer.reg_service }}
+</p>
+<p>
+    {{ Text.format('TMPL_FACTORING_FACTORING_ID', lang) }}: {{ offer.options.get('loan_id') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FACTORING_FACTORING_TYPE', lang) }}: {{ offer.options.get('pay_reqs') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FACTORING_PROVIDER', lang) }}: {{ offer.options.get('title_supplier') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FACTORING_AMOUNT', lang) }}: {{ offer.options.get('sum_reqs') }}
+</p>
+<p>
+    {{ Text.format('TMPL_FACTORING_DATE_OF_PAYMENT', lang) }}: {{ offer.options.get('date_reqs_pay') }}
+</p>
+{% end %}
+
+
+{% block price %}
+{{ Text.format('TMPL_FACTORING_PRICE', lang) }}
+<br/>
+${{ offer.fprice }}
+{% end %}

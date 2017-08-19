@@ -1,0 +1,13 @@
+git+https://github.com/ktsstudio/tornkts.git@v0.9.2#egg=tornkts
+git+https://github.com/ktsstudio/roboman.git@450a0e29#egg=roboman
+requests==2.11.1
+tornado==4.4.2
+mongoengine==0.10.6
+pymongo==3.2
+pytz==2016.3
+torndsession==1.1.4
+emoji==0.3.9
+raven==5.27.0
+selenium==2.53.6
+Pillow==3.4.1
+pycurl==7.43.0

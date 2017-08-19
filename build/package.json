@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "name": "bankex",
+  "description": "BankEx API and customer bot",
+  "yumDependencies": [
+    "python34u"
+  ],
+  "gruntCwd": "admin",
+  "yumBuildDependencies": [
+    "python34u",
+    "python27-virtualenv",
+    "rpm-build",
+    "redhat-rpm-config"
+  ],
+  "excludeFiles": [
+    ".gitlab-ci.yml",
+    "admin/node_modules"
+  ]
+}

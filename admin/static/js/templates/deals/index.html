@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Сделки</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-md-2">Пользователь</th>
+                                <th class="col-md-2">Продавец</th>
+                                <th class="col-md-3">Товар</th>
+                                <th class="col-md-2">Дата начала сделки</th>
+                                <th class="col-md-2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            users.each(function(item){
+                            %>
+                            <tr data-id="<%- item.get('id') %>" class="js-deal-row <%- item.get('bc_hash') ? 'green': '' %>">
+                                <td>
+                                    <% if (item.get('user').username) { %>
+                                    <a href="https://telegram.me/<%- item.get('user').username %>" target="_blank">
+                                        <%- item.get('user').name %> <%- item.get('user').surname %>
+                                    </a>
+                                    <% } else { %>
+                                    <%- item.get('user').name %> <%- item.get('user').surname %>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <% if (item.get('salesman').username) { %>
+                                    <a href="https://telegram.me/<%- item.get('salesman').username %>" target="_blank">
+                                        <%- item.get('salesman').name %> <%- item.get('salesman').surname %>
+                                    </a>
+                                    <% } else { %>
+                                    <%- item.get('salesman').name %> <%- item.get('salesman').surname %>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <%- item.get('offer').description %>
+                                </td>
+
+                                <td>
+                                    <%- item.get('creation_date') %>
+                                </td>
+                                <td>
+                                    <nobr>
+                                        <a href="#" data-id="<%- item.get('id') %>" class="js-deal-remove">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                            Удалить
+                                        </a>
+                                    </nobr>
+                                </td>
+                            </tr>
+                            <%
+                            });
+                            %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-offset-3 col-md-6 text-center">
+                    <ul class="pagination ">
+                        <% if (offset >= users.pageSize) { %>
+                        <li data-offset="0" class="pagination__item pagination__item_deals">
+                            <a href="#">В начало</a>
+                        </li>
+                        <% } %>
+
+                        <%
+                        for(var i = users.getBeginPagination(offset); i < users.getEndPagination(offset); i++) { %>
+                        <li data-offset="<%- (users.pageSize * i) %>" class="pagination__item pagination__item_deals <% if (offset == (users.pageSize * i)) { %>active<% }%>">
+                            <a href="#"><%- i+1 %></a>
+                        </li>
+                        <% } %>
+
+                        <% if (offset < users.pageSize * (users.pageCount -1)) { %>
+                        <li data-offset="<%- (users.pageSize * (users.pageCount -1)) %>" class="pagination__item pagination__item_deals">
+                            <a href="#">Последняя</a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

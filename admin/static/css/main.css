@@ -1,0 +1,98 @@
+.panel-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 400px;
+    height: 210px;
+
+    margin-top: -135px;
+    margin-left: -200px;
+}
+
+.panel-login__title {
+    margin-top: 0;
+}
+
+.panel-title.panel-title_search {
+    line-height: 34px;
+}
+
+.unread {
+    border-left: 3px solid #6bb70d;
+}
+
+.apartment-link {
+    display: inline-block;
+
+    margin-right: 5px;
+}
+
+.apartment-img {
+    width: 100px;
+    height: 100px;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.word-break {
+    word-break: break-all;
+}
+
+.company-title {
+    text-transform: capitalize;
+}
+
+input.control-checkbox {
+    margin-top: 10px;
+}
+
+.thumbnail.thumbnail_photo {
+    height: 310px;
+
+    margin-top: 10px;
+}
+
+.thumbnail.thumbnail_photo * {
+    max-height: 300px;
+}
+
+.panel-body.panel-body_possible-filial {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    height: 480px;
+}
+
+.loader {
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    margin-bottom: -4px;
+
+    background: url('../../img/ajax-loader.gif') 0 0 no-repeat;
+}
+
+table.table > tbody > tr > td.vertical-middle {
+    vertical-align: middle;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.company-to-trash-btn {
+    cursor: pointer;
+}
+
+.company-to-trash-btn:hover,
+.company-edit:hover{
+    text-decoration: none;
+}
+
+.green, .green td {
+    background: rgba(63, 255, 0, 0.31);
+}
